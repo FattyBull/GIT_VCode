@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner's Guide to VS Code & Git Version Control</title>
+    <meta name="description" content="A beginner-friendly, interactive tutorial to learn Git version control with Visual Studio Code. Master Git commands, branching, merging, and more.">
+    <meta name="keywords" content="VS Code, Visual Studio Code, Git, Git tutorial, version control, beginners, Git repository, Git branches, Git merging, Git staging, Git commit, learn Git, Git commands">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .card {
+            transform: scale(1);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .step-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .step-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <!-- Google Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "VS Code & Git: A Beginner's Guide",
+      "url": "https://your-website.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://your-website.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Learn Git Version Control with VS Code",
+      "description": "A step-by-step guide for beginners to learn Git and VS Code.",
+      "totalTime": "PT1H30M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Install and Configure Git",
+          "text": "Download and install Git for your operating system. Configure your user name and email globally."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Initialize a Project",
+          "text": "Create a new folder and initialize a Git repository within it using the terminal or VS Code's built-in Source Control."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Staging and Committing",
+          "text": "Use the Source Control view in VS Code to stage your changes and write a descriptive commit message to save your progress."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Branching and Merging",
+          "text": "Create new branches for features or bug fixes, make changes, and then merge them back into the main branch once your work is complete."
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto p-4 flex items-center justify-between">
+            <h1 class="text-xl md:text-2xl font-bold text-gray-900">
+                <a href="#" id="home-link" class="hover:text-blue-600 transition-colors">VS Code & Git Guide</a>
+            </h1>
+            <nav>
+                <a href="#" id="menu-home-link" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8 flex-grow flex flex-col items-center">
+        <section class="w-full text-center mb-8">
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mt-8 mb-2">Mastering Version Control for Beginners</h2>
+            <p class="text-lg md:text-xl text-gray-600">Your practical guide to using Git with Visual Studio Code.</p>
+        </section>
+
+        <!-- Card View (Home Page) -->
+        <div id="card-view" class="w-full max-w-4xl grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+            <!-- Step 1 Card -->
+            <div id="step-1-card" class="card bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-2">Step 1: Install & Configure Git</h3>
+                <p class="text-gray-600 mb-4">Get Git on your machine and set up your identity. This is the foundation for everything you do with version control.</p>
+                <div class="mt-auto">
+                    <span class="inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Foundation</span>
+                </div>
+            </div>
+
+            <!-- Step 2 Card -->
+            <div id="step-2-card" class="card bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-2">Step 2: Initialize a Project</h3>
+                <p class="text-gray-600 mb-4">Turn any folder into a Git repository. Learn how to start tracking changes for your web project.</p>
+                <div class="mt-auto">
+                    <span class="inline-block bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">New Project</span>
+                </div>
+            </div>
+
+            <!-- Step 3 Card -->
+            <div id="step-3-card" class="card bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-2">Step 3: Staging & Committing</h3>
+                <p class="text-gray-600 mb-4">Learn to save your work. Understand the concepts of staging changes and creating a clear commit history.</p>
+                <div class="mt-auto">
+                    <span class="inline-block bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">Workflow</span>
+                </div>
+            </div>
+
+            <!-- Step 4 Card -->
+            <div id="step-4-card" class="card bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-2">Step 4: Branching & Merging</h3>
+                <p class="text-gray-600 mb-4">Explore collaboration and experimental features without affecting your main codebase. A key skill for any developer.</p>
+                <div class="mt-auto">
+                    <span class="inline-block bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">Collaboration</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Step View (Hidden by default) -->
+        <div id="step-view" class="hidden w-full max-w-4xl">
+            <button id="back-button" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-300 mb-6 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                Back to all steps
+            </button>
+            <div id="step-content-container" class="bg-white p-6 rounded-xl shadow-md">
+                <!-- Step content will be injected here by JavaScript -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-gray-400 p-4 md:p-6 text-center mt-auto">
+        <p>&copy; 2025 VS Code & Git Guide. All Rights Reserved. </p>
+        <p class="text-sm mt-2">Tutorial for educational purposes only.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cardView = document.getElementById('card-view');
+            const stepView = document.getElementById('step-view');
+            const stepContentContainer = document.getElementById('step-content-container');
+            const backButton = document.getElementById('back-button');
+            const homeLinks = document.querySelectorAll('#home-link, #menu-home-link');
+            const cards = document.querySelectorAll('.card');
+
+            // Define the content for each step
+            const stepContents = {
+                'step-1-card': {
+                    title: 'Step 1: Install & Configure Git',
+                    description: `
+                        <p class="text-lg text-gray-700 mb-4">Welcome to the first step! Before we can use Git with VS Code, you need to install it on your computer and set up your user information. The process for Windows is as follows:</p>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">Task 1: Install Git</h3>
+                        <ol class="list-decimal list-inside text-gray-700 space-y-2 mb-4">
+                            <li>Go to the official Git website: <a href="https://git-scm.com/download/win" class="text-blue-500 hover:underline" target="_blank">git-scm.com/download/win</a>.</li>
+                            <li>The download will start automatically. Once it's complete, run the installer.</li>
+                            <li>Follow the on-screen prompts. For most options, the default settings are fine, but pay attention to the text editor selection—you can choose VS Code here.</li>
+                            <li>After the installation, open your command prompt (or PowerShell) and type: <code class="bg-gray-200 p-1 rounded-md text-gray-900">git --version</code>. This should show you the installed version.</li>
+                        </ol>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">Task 2: Configure Your Git Identity</h3>
+                        <p class="text-gray-700 mb-2">You need to tell Git who you are. This information will be attached to every commit you make.</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>In your command prompt, type your name:
+                                <pre class="bg-gray-800 text-white p-3 rounded-md mt-2 overflow-x-auto"><code>git config --global user.name "Your Name"</code></pre>
+                            </li>
+                            <li>Then, add your email address:
+                                <pre class="bg-gray-800 text-white p-3 rounded-md mt-2 overflow-x-auto"><code>git config --global user.email "your_email@example.com"</code></pre>
+                            </li>
+                        </ul>
+                    `
+                },
+                'step-2-card': {
+                    title: 'Step 2: Initialize a Project',
+                    description: `
+                        <p class="text-lg text-gray-700 mb-4">Now that Git is installed, let's create a new project and make it a Git repository.</p>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">Task 1: Create Your Project Folder</h3>
+                        <ol class="list-decimal list-inside text-gray-700 space-y-2 mb-4">
+                            <li>Create a new folder on your computer for your web project. You can call it "my-first-git-project".</li>
+                            <li>Open VS Code and go to <strong>File > Open Folder...</strong> and select your new folder.</li>
+                        </ol>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">Task 2: Initialize a Git Repository</h3>
+                        <p class="text-gray-700 mb-2">This is the command that tells Git to start tracking changes in this folder.</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>In VS Code, open the integrated terminal by going to <strong>Terminal > New Terminal</strong>.</li>
+                            <li>In the terminal, type the following command:
+                                <pre class="bg-gray-800 text-white p-3 rounded-md mt-2 overflow-x-auto"><code>git init</code></pre>
+                            </li>
+                            <li>You'll see a message that says "Initialized empty Git repository". This means you're ready to go!</li>
+                            <li>Now, create a new file in your project, like an <code class="bg-gray-200 p-1 rounded-md text-gray-900">index.html</code>. You'll notice the VS Code Source Control icon (the three circles) will show a '1', indicating a new untracked file.</li>
+                        </ul>
+                    `
+                },
+                'step-3-card': {
+                    title: 'Step 3: Staging & Committing',
+                    description: `
+                        <p class="text-lg text-gray-700 mb-4">This is the core of Git's workflow. We'll learn how to "stage" changes for a commit and then "commit" them to the project's history.</p>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">Task 1: Stage Your Files</h3>
+                        <ol class="list-decimal list-inside text-gray-700 space-y-2 mb-4">
+                            <li>In the VS Code Source Control view (Ctrl + Shift + G), you'll see a list of "Changes" (the files you've modified).</li>
+                            <li>Hover over the <code class="bg-gray-200 p-1 rounded-md text-gray-900">index.html</code> file and click the <strong class="text-green-500">+</strong> icon. This moves the file from "Changes" to "Staged Changes".</li>
+                            <li>Staging means you're telling Git, "I'm ready to save these specific changes in my next commit."</li>
+                        </ol>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">Task 2: Commit Your Changes</h3>
+                        <p class="text-gray-700 mb-2">Committing saves the staged changes to the project's history, creating a permanent snapshot.</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>In the Source Control view, type a clear and descriptive commit message in the text box at the top, like "Initial commit: Add index.html".</li>
+                            <li>Click the checkmark icon to commit your staged changes.</li>
+                            <li>Congratulations! You've made your first commit. You can view it by clicking the three dots (...) in the Source Control view and selecting "Show Git Output".</li>
+                        </ul>
+                    `
+                },
+                'step-4-card': {
+                    title: 'Step 4: Branching & Merging',
+                    description: `
+                        <p class="text-lg text-gray-700 mb-4">Branching is a powerful Git feature that allows you to work on new features or bug fixes without affecting the main project.</p>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">Task 1: Create a New Branch</h3>
+                        <ol class="list-decimal list-inside text-gray-700 space-y-2 mb-4">
+                            <li>In the bottom-left corner of the VS Code window, you'll see the name of your current branch, probably "main" or "master". Click it.</li>
+                            <li>A command palette will open at the top. Select "Create new branch...".</li>
+                            <li>Type a name for your new branch, like "add-contact-form" and press Enter. You'll now be on your new branch.</li>
+                        </ol>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">Task 2: Make Changes and Merge</h3>
+                        <p class="text-gray-700 mb-2">Now you can work on your new feature in isolation.</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Modify your <code class="bg-gray-200 p-1 rounded-md text-gray-900">index.html</code> file by adding a new section or some text.</li>
+                            <li>Stage and commit these changes just like you did in Step 3.</li>
+                            <li>Once you're done, switch back to the "main" branch by clicking the branch name in the bottom-left corner again and selecting "main".</li>
+                            <li>In the Source Control view, click the three dots (...) and select <strong>Branch > Merge Branch...</strong>.</li>
+                            <li>Choose your "add-contact-form" branch to merge its changes into the "main" branch.</li>
+                            <li>Git will merge the changes automatically, and you can now see your new feature on the "main" branch.</li>
+                        </ul>
+                    `
+                }
+            };
+
+            // Event listeners for each card
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const content = stepContents[card.id];
+                    if (content) {
+                        renderStep(content.title, content.description);
+                    }
+                });
+            });
+
+            // Event listener for the back button and home links
+            [...homeLinks, backButton].forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    stepView.classList.add('hidden');
+                    cardView.classList.remove('hidden');
+                });
+            });
+
+            // Function to render the step content
+            function renderStep(title, description) {
+                stepContentContainer.innerHTML = `
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">${title}</h2>
+                    <div class="prose max-w-none">${description}</div>
+                `;
+                cardView.classList.add('hidden');
+                stepView.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
